@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun May 19 20:01:20 GMT 2024","Sun May 19 20:01:55 GMT 2024","34640","tests","test_sing_up","TestSignUp","","","test_user_can_sign_up[chromium]","Test user can sign up"
