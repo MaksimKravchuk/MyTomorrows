@@ -1,0 +1,7 @@
+playwright
+pytest
+allure-pytest
+pytest-base-url
+pytest-playwright
+tempmail-python
+faker
