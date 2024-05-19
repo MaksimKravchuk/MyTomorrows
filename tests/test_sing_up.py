@@ -39,12 +39,15 @@ class TestSignUp:
             create_account_page = CreateAccountPage(page)
             first_name = fake.first_name()
             last_name = fake.last_name()
-            create_account_page.create_account(email=email.address, first_name=first_name,
-                                               last_name=last_name)
+            create_account_page.create_account(
+                email=email.address, first_name=first_name, last_name=last_name
+            )
 
             with allure.step("Receive email with verification link"):
                 msg = email.wait_for_message()
-                pattern = re.compile(r"""https://platform-develop.mytomorrows.com/create-account/set-password\?([-a-zA-Z0-9()@:%_\+.~#?&//=]*)""")
+                pattern = re.compile(
+                    r"""https://platform-develop.mytomorrows.com/create-account/set-password\?([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"""
+                )
                 match = re.search(pattern, msg.text_body)
                 link = match.group(0)
 
@@ -58,14 +61,13 @@ class TestSignUp:
         setup_account_page = SetUpAccountPage(page)
 
         with page.expect_navigation(url="**/home"):
-            setup_account_page.setup_account(job_title="study director", specialty="Cardiology", country="Argentina",
-                                             registration_number="1234567823", is_running_clinical_trials=True)
+            setup_account_page.setup_account(
+                job_title="study director",
+                specialty="Cardiology",
+                country="Argentina",
+                registration_number="1234567823",
+                is_running_clinical_trials=True,
+            )
 
         with allure.step("Check that user is logged in"):
             expect(home_page.account_btn(first_name, last_name)).to_be_visible()
-
-
-
-
-
-
