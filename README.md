@@ -11,5 +11,5 @@ playwright install
 ```
 3. Run the tests
 ```bash
-pytest
+pytest --base-url=https://platform-qa.mytomorrows.com/
 ```

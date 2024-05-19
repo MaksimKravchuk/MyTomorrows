@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run your tests
-        run: pytest --alluredir=${{ env.ALLURE_RESULTS }}
+        run: pytest --alluredir=${{ env.ALLURE_RESULTS }} --base-url=https://platform-qa.mytomorrows.com/
 
       - name: Load test report history
         uses: actions/checkout@v3

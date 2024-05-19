@@ -29,7 +29,7 @@ def email() -> EMail:
 class TestSignUp:
     def test_user_can_sign_up(self, page: Page, email: EMail, fake: Faker):
         """Test user can sign up"""
-        page.goto("https://platform-qa.mytomorrows.com/home")
+        page.goto("/home")
         with allure.step("Click on Create account button on Home page"):
             home_page = HomePage(page)
             home_page.create_account_btn.click()
@@ -50,7 +50,7 @@ class TestSignUp:
                 msg = email.wait_for_message()
                 pattern = re.compile(
                     r"""https://platform-develop.mytomorrows.com/create-account/set-password\?([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"""
-                )
+                )  # this regex can be more universal
                 match = re.search(pattern, msg.text_body)
                 link = match.group(0)
 
