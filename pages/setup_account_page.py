@@ -29,7 +29,7 @@ class SetUpAccountPage:
         job_title: str,
         specialty: str,
         country: str,
-        registration_number: str,
+        registration_number: str | int,
         is_running_clinical_trials: bool,
     ):
         """Setup account"""
@@ -37,6 +37,8 @@ class SetUpAccountPage:
         self.speciality_selector.select_option(specialty)
         self.country_selector.select_option(country)
         with allure.step(f"Fill in registration number: {registration_number}"):
+            if isinstance(registration_number, int):
+                registration_number = str(registration_number)
             self.registration_number_input.fill(registration_number)
         with allure.step(
             f"Select if user is running clinical trials: {is_running_clinical_trials}"

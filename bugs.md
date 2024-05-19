@@ -50,9 +50,9 @@ curl 'https://microservice-develop.mytomorrows.com/v1.3.0/health-care-profession
   ```
 
 ### Actual result
-The page returns 500 error.
+The page returns 500 error. That happens because the registration number is not unique.
 
 ### Expected result
 The Back-end should return 400 error with the message "Invalid registration number".
-The more precise error message should be returned, the better. Best option here is to return 400 error with the message `"Registration number should contain 10 digits"`.
+The more precise error message should be returned, the better. Best option here is to return 400 error with the message `"Registration number is already registered."`.
    

@@ -63,14 +63,16 @@ class TestSignUp:
 
         setup_account_page = SetUpAccountPage(page)
 
-        with page.expect_navigation(url="**/home"):
+        with page.expect_response("**/health-care-professional/**") as response_info:
             setup_account_page.setup_account(
                 job_title="study director",
                 specialty="Cardiology",
                 country="Argentina",
-                registration_number="123456782323",
+                registration_number=fake.random_number(),
                 is_running_clinical_trials=True,
             )
+        response = response_info.value
+        assert response.ok, f"Response {response.url} is not {response.status}. {response.text}"
 
         with allure.step("Check that user is logged in"):
             expect(home_page.account_btn(first_name, last_name)).to_be_visible()
