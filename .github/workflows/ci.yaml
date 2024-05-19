@@ -8,6 +8,8 @@ on:
 env:
   ALLURE_RESULTS: build/allure-results
 
+permissions:
+  contents: write
 
 jobs:
   ruff:
