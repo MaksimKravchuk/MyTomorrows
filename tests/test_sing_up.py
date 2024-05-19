@@ -68,7 +68,7 @@ class TestSignUp:
                 job_title="study director",
                 specialty="Cardiology",
                 country="Argentina",
-                registration_number="1234567823",
+                registration_number="123456782323",
                 is_running_clinical_trials=True,
             )
 
