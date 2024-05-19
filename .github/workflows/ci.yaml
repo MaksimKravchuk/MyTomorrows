@@ -6,7 +6,7 @@ on:
     tags-ignore: ['**']
 
 env:
-  ALLURE_RESULTS: build/allure-results
+  ALLURE_RESULTS: allure-results
 
 permissions:
   contents: write
@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run your tests
-        run: pytest --alluredir=$ALLURE_RESULTS
+        run: pytest --alluredir=${{ env.ALLURE_RESULTS }}
 
       - name: Load test report history
         uses: actions/checkout@v3
@@ -56,7 +56,7 @@ jobs:
         with:
           gh_pages: gh-pages
           allure_history: allure-history
-          allure_results: $ALLURE_RESULTS
+          allure_results: ${{ env.ALLURE_RESULTS }}
 
       - name: Publish test report
         uses: peaceiris/actions-gh-pages@v3
