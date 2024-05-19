@@ -1,0 +1,56 @@
+[tool.ruff]
+fix = true
+line-length = 120
+fixable = ["ALL"]
+ignore = [
+    "S101", # Use of `assert` detected
+    "B904", # Within an `except` clause, raise exceptions with `raise ... from err`
+    "FBT001", #  Boolean positional arg in function definition
+    "FBT002", # Boolean default value in function definition
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "S113", # Probable use of requests call without timeout
+    "D211", # no-blank-line-before-class
+    "D213", # multi-line-summary-second-line`
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D104", # Missing docstring in public package
+    "D107", # Missing docstring in __init__
+    "D210", # No whitespaces allowed surrounding docstring text
+    "D401",
+    "D400", # First line should end with a period
+    "D415", # First line should end with a period, question mark, or exclamation point
+    "D205",
+    "E203",
+    "E266",
+    "E501",
+    "F403",
+    "F401",
+    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+select = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "FBT",
+    "I",
+    "N",
+    "Q",
+    "RUF",
+    "S",
+    "T",
+    "UP",
+    "W",
+    "YTT",
+]
+
+
+[tool.pytest.ini_options]
+log = "INFO"
+log_cli = "True"

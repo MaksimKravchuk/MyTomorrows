@@ -32,6 +32,7 @@ class SetUpAccountPage:
         registration_number: str,
         is_running_clinical_trials: bool,
     ):
+        """Setup account"""
         self.job_title_selector.select_option(job_title)
         self.speciality_selector.select_option(specialty)
         self.country_selector.select_option(country)

@@ -16,6 +16,7 @@ class SetPasswordPage:
 
     @allure.step("Set password")
     def set_password(self, password: str):
+        """Set password"""
         self.password_input.fill(password)
         self.confirm_password_input.fill(password)
         self.activate_account_btn.click()

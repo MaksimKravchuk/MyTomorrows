@@ -17,6 +17,7 @@ class MaterialSelectorOverlay:
         )  # It's better to have a more specific selector
 
     def select_option(self, option: str):
+        """Select option from dropdown"""
         with allure.step(f"Select option {option} for {self.header}"):
             self.dropdown_btn.click()
             return (

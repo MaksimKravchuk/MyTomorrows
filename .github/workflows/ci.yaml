@@ -20,6 +20,7 @@ jobs:
 
   playwright:
     name: 'Playwright Tests'
+    needs: ruff
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright/python:v1.43.0-jammy

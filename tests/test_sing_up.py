@@ -2,9 +2,9 @@ import re
 
 import allure
 import pytest
+from faker import Faker
 from playwright.sync_api import Page, expect
 from tempmail import EMail
-from faker import Faker
 
 from pages.crate_account_page import CreateAccountPage
 from pages.home_page import HomePage
@@ -15,17 +15,20 @@ from pages.sign_up_page import SignUpPage
 
 @pytest.fixture(autouse=True)
 def fake() -> Faker:
+    """Faker instance"""
     return Faker()
 
 
 @pytest.fixture()
 def email() -> EMail:
+    """Temp mail instance"""
     email = EMail()
     return email
 
 
 class TestSignUp:
     def test_user_can_sign_up(self, page: Page, email: EMail, fake: Faker):
+        """Test user can sign up"""
         page.goto("https://platform-qa.mytomorrows.com/home")
         with allure.step("Click on Create account button on Home page"):
             home_page = HomePage(page)

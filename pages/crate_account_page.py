@@ -27,6 +27,7 @@ class CreateAccountPage:
 
     @allure.step("Fill in sign up form")
     def create_account(self, email: str, first_name: str, last_name: str):
+        """Fill in sign up form"""
         with allure.step(f"Fill in email: {email}"):
             self.email_input.fill(email)
             self.confirm_email_input.fill(email)
